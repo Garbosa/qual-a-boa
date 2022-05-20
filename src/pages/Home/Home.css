@@ -1,0 +1,13 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25vh;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+  }
+
+.Home_title{
+  color:#8941E3;
+}

@@ -1,0 +1,9 @@
+.LoginInputField {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+.LoginButtonField {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,10 @@
+.button{
+    height: 10vh;
+    width: 30vh;
+    border-radius: 1vh;
+    background-color: #8941E3;
+    color: whitesmoke;
+    border: none;
+    font-size: 1.2em;
+}
+
