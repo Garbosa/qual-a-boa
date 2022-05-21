@@ -1,10 +1,38 @@
-.button{
-    height: 10vh;
-    width: 30vh;
+.button {
     border-radius: 1vh;
-    background-color: #8941E3;
+    background-color: #8941e3;
     color: whitesmoke;
     border: none;
     font-size: 1.2em;
 }
 
+.button-lg {
+    height: 10vh;
+    width: 30vh;
+}
+
+.button-md {
+    height: 5vh;
+    width: 10vh;
+}
+
+.button-login{
+    height: 7vh;
+    width: 48vh;
+    margin-bottom: 2vh;
+}
+
+.button-filters{
+    height: 10vh;
+    width: 25vh;
+    margin-bottom: 2vh;
+}
+
+.button-Unchoosed{
+    height: 10vh;
+    width: 25vh;
+    margin-bottom: 2vh;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}

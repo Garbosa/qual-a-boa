@@ -1,0 +1,16 @@
+.Register {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.Register h1 {
+    font-size: 1.3em;
+    color: #8941e3;
+    text-align: center;
+}
+.Register hr {
+    height: 1px;
+    background-color: #bfbfbf;
+    border: none;
+}

@@ -1,0 +1,29 @@
+.Filters {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Filters h1 {
+    font-size: 2em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: #8941e3;
+}
+
+.Filters p {
+    font-weight: 600;
+    margin-block-start: 1em;
+    margin-block-end: 3em;
+    margin-inline-start: 0;
+}
+
+.FiltersButtons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    place-content: space-evenly;
+}

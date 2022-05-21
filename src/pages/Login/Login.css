@@ -1,9 +1,36 @@
+.LoginFields {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .LoginInputField {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  width: 95%;
 }
-.LoginButtonField {
+.LoginButtonsField {
   display: flex;
-  flex-direction: row;
+  margin-top: 2vh;
+  flex-direction: column;
+}
+
+.LoginInputSpan {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+  font-weight: 600;
+  color: #a19f9f;
+  width: 90vw;
+}
+
+.LoginImage{
+    width: 70%;
+    align-self: center;
+}
+
+.LoginInputSpan p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-left: 1em;
+  color:black;
 }
