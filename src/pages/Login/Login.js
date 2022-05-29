@@ -1,8 +1,8 @@
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./Login.css";
-import logo from '../../logo/logo.png'
 import { useNavigate } from "react-router-dom";
+import Logo from "../../components/Logo/Logo";
 
 function Login() {
   
@@ -10,7 +10,7 @@ function Login() {
 
   return (
     <div className="LoginFields">
-      <img alt="" className="LoginImage" src={logo} />
+     <Logo />
       <div className="LoginInputField">
         <Input label="nome" title="Login" />
         <Input label="sobrenome" title="Senha"/>

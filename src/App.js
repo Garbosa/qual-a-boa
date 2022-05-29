@@ -1,21 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import Cookies from 'universal-cookie';
 
-import './App.css';
-import Button from './components/Button/Button';
 
-function App() {
-  const navigate = useNavigate();
-  
-  const navigateHandler = (route) =>{
-    navigate(`/${route}`);
-  }
+function App(){
 
-  return (
-    <div className="App">
-      <h1>Qual a boa?</h1>
-      <Button label="Iniciar" clickHandler={() => navigateHandler("login")}/>
-    </div>
-  );
+useEffect(() => {
+    const cookistored = new Cookies();
+    const cookies = new Cookies();
+    cookies.set('reactfromblog','this_works', {path: '/'})
+},[])
+
 }
-
-export default App;

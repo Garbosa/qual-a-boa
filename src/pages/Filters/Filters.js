@@ -54,7 +54,7 @@ function Filters() {
           );
         })}
       </div>
-      <Button label="Filtrar" size="button-login" />
+      <Button label={`Filtrar (${_.filter(preferences, x => {return x.choosed}).length})`} size="button-login" />
     </div>
   );
 }
