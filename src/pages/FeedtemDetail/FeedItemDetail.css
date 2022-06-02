@@ -1,0 +1,49 @@
+.item_main {
+    height: 100vh;
+    padding-left: 3vw;
+}
+
+.item_title {
+    display: flex;
+    height: 10vh;
+}
+
+.item_span {
+    color: #8941e3;
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.item_description {
+    margin-bottom: 4vh;
+}
+
+.description_field {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.description_name {
+    font-size: 1.4rem;
+    color: #8941e3;
+}
+
+.description_title {
+    font-weight: 500;
+    margin-top: 2vh;
+}
+
+.description_map{
+    width: 94vw;
+    height: 27vh;
+    background-size: contain;
+}
+
+.description_field p {
+    display: block;
+    margin-block-start: 0.8em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

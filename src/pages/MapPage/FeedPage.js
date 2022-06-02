@@ -1,12 +1,14 @@
 import React from 'react';
 import './FeedPage.css';
+import Input from '../../components/Input/Input'
+import FeedChoice from '../../components/FeedChoice/FeedChoice';
 
 function FeedPage(){
 
     return(
         <div className="Feedpage">
-            <div>Barra de pesquisa</div>
-            <div>Novo componente</div>
+            <div ><Input roundButton round placeholder/> </div>
+            <FeedChoice />
         </div>
     )
 }
