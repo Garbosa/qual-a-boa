@@ -1,16 +1,28 @@
+import _ from "lodash";
 import React from "react";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Card from "../Card/Card";
 import "./FeedChoice.css";
 
-function FeedChoice() {
+function FeedChoice(props) {
+  const cardClick = (element) => {
+    props.onCardClick && props.onCardClick(element);
+  };
+
+  const changeActiveTab = (data) => {
+    props.changeTab && props.changeTab(data);
+  };
+
   return (
-    <div class="FeedChoice_main">
-      <div class="FeedChoice_option">
-        <span style={{backgroundColor: "white", color: "black", width:"50vw"}}>Cultural</span>
-        <span>Estabelecimento</span>
-      </div>
+    <div className="FeedChoice_main">
+      <ButtonGroup changeActiveTab={(data) => changeActiveTab(data)} />
       <div className="FeedChoice_content">
-          <Card />
+        {_.isEmpty(props.data) && <h1>Nenhum evento para exibir...</h1>}
+        {!_.isEmpty(props.data) &&
+          _.map(props.data, (x, i) => {
+            if (x.city)
+              return <Card key={i} info={x} cardClick={() => cardClick(x)} />;
+          })}
       </div>
     </div>
   );

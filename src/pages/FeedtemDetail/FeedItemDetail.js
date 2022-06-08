@@ -1,40 +1,132 @@
 import React from "react";
 import "./FeedItemDetail.css";
 import { Rating } from "react-simple-star-rating";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  // InfoWindow,
+} from "@react-google-maps/api";
+import { libraries } from "../FeedPage/FeedPage";
 
-function FeedItemDetail() {
+function Map(props) {
+  let centers = { lat: parseFloat(props.lat),  lng: parseFloat(props.lng) };
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: "AIzaSyAEWipmZ3jGT33I93c1nw1VZdQ20mjEdSg",
+    libraries,
+  });
+
+  if (loadError) return "Error loading Maps";
+  if (!isLoaded) return "Loading maps";
+
+  const mapContainerStyle = {
+    width: "74vw",
+    height: "50vh",
+  };
+
+  const options = {
+    styles: [
+      {
+        featureType: "all",
+        elementType: "labels.text",
+        stylers: [
+          {
+            color: "#878787",
+          },
+        ],
+      },
+      {
+        featureType: "all",
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [
+          {
+            color: "#f9f5ed",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "all",
+        stylers: [
+          {
+            color: "#f5f5f5",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [
+          {
+            color: "#c9c9c9",
+          },
+        ],
+      },
+      {
+        featureType: "water",
+        elementType: "all",
+        stylers: [
+          {
+            color: "#aee0f4",
+          },
+        ],
+      },
+    ],
+    disableDefaultUI: true,
+  };
+
+  return (
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      zoom={14}
+      center={centers}
+      options={options}
+    >
+      {isLoaded && (
+        <Marker position={centers} title="Local" />
+      )}
+    </GoogleMap>
+  );
+}
+
+function FeedItemDetail(props) {
+  const { modalInfo } = props;
   return (
     <div className="item_main">
       <div className="item_title">
-        <span className="item_span">Apresentação de dança</span>
+        <span className="item_span">{modalInfo?.name}</span>
       </div>
       <div className="item_description">
-        Apresentação teatral do grupo de atores de rua. A peça mostra a história
-        de um jovem que ao se mudar para uma nova cidade descobre que está
-        proibido de dançar por conta de uma lei imposta na cidade após um
-        acidente.
+        <span>{modalInfo?.description || modalInfo?.name} </span>
       </div>
       <div className="description_field">
         <span className="description_name">Avaliações</span>
         <span>
-          Muito bom! <Rating ratingValue={5} size={20} />
+          <Rating ratingValue={modalInfo?.rating} size={20} />
         </span>
-        <p>ótima apresentação, os atores eram muito bons, dançavam bem!</p>
-        <b>ver mais...</b>
+        <p>Nenhuma avaliação até o momento. :)</p>
       </div>
       <div className="description_field">
         <span className="description_name">Preço</span>
-        <p>Ingresso: R$30,00</p>
-        <p>Meia-entrada: R$15,00</p>
+        <p>Ingresso: R$0,00</p>
+        <p>Meia-entrada: R$0,00</p>
       </div>
       <div>
         <span className="description_name">Localização</span>
-        <div
-          className="description_map"
-          style={{
-            backgroundImage: `url('https://cdn.filestackcontent.com/kzm0jTTAQMPr7x8TbC69')`,
-          }}
-        ></div>
+        <p>{modalInfo?.address}</p>
+        <Map
+          lat={modalInfo?.event_coordinates[0]}
+          lng={modalInfo?.event_coordinates[1]}
+        />
       </div>
     </div>
   );

@@ -5,21 +5,41 @@
   border: none;
   border-radius: 3px;
   border: 1px solid black;
+  
 }
 
 .round_button {
-  width: 4.5vh;
-  height: 4.5vh;
+  width: 35px;
+  height: 30px;
   border-radius: 5vh;
   display: flex;
-  z-index: 10;
-  position: fixed;
+  /* z-index: 10; */
+  /* position: absolute;
   right: 10%;
-  bottom: 93.5%;
+  bottom: 93.5%; */
   border: none;
   background: #8941e3;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 1.1rem;
+}
+
+.LoginInputSpan {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+  font-weight: 600;
+  color: #a19f9f;
+  width: 90vw;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  font-size: smaller;
+  font-weight: 600;
+  color: #a19f9f;
+  width: 90vw;
+  align-items: center;
 }

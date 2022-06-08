@@ -1,0 +1,21 @@
+.ButtonGroup_main {
+    width: 88vw;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    color: whitesmoke;
+    text-align: center;
+    border: 1px solid #8941e3;
+    border-radius: 2vh;
+}
+
+.ButtonGroup_main span {
+    border-radius: 2vh;
+    width: 50vw;
+    color:black;
+}
+
+.ButtonGroup_selected {
+    color: whitesmoke !important;
+    background-color: #8941e3;
+}
