@@ -98,7 +98,7 @@ function Map(props) {
 
 function FeedItemDetail(props) {
   const { modalInfo } = props;
-  console.log(modalInfo);
+
   return (
     <div className="item_main">
       <div className="item_title">

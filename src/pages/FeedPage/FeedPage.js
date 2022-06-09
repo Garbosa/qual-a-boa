@@ -69,7 +69,7 @@ function FeedPage() {
     _.map(events, (item) =>
       _.map(item.user_preferences, (x) =>
         _.map(preferences, (y) => {
-          if (x === y) {
+          if (_.lowerCase(x) === _.lowerCase(y)) {
             arrayfiltered.push(item);
           }
         })
