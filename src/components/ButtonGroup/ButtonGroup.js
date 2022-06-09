@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { faBook, faBeerMugEmpty } from "@fortawesome/free-solid-svg-icons";
 import "./ButtonGroup.css";
 
 function ButtonGroup(props) {
@@ -17,7 +19,7 @@ function ButtonGroup(props) {
           selectedButton === "cultural" ? "ButtonGroup_selected" : ""
         }`}
       >
-        Cultural
+       <FontAwesomeIcon icon={faBook} /> Cultural 
       </span>
       <span
         onClick={() => changeSelectedButton("lazer")}
@@ -25,7 +27,7 @@ function ButtonGroup(props) {
           selectedButton === "lazer" ? "ButtonGroup_selected" : ""
         }`}
       >
-        Lazer
+        <FontAwesomeIcon icon={faBeerMugEmpty} /> Lazer 
       </span>
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 export const getUserData = async (_id, bearer) => {
   const response = await axios({
     method: "get",
-    url: `https://3a76-2804-14d-78b1-809f-387c-46df-70b4-b239.sa.ngrok.io/user/${_id}`,
+    url: `https://f0a8-2804-14d-78b1-809f-b84e-c888-ce44-a9bf.sa.ngrok.io/user/${_id}`,
 
     headers: {
       Authorization: `bearer ${bearer}`,
@@ -19,7 +19,7 @@ export const getUserData = async (_id, bearer) => {
 export const putUserData = async (data, _id,bearer) => {
   const response = await axios({
     method: "put",
-    url: `https://3a76-2804-14d-78b1-809f-387c-46df-70b4-b239.sa.ngrok.io/user/${_id}`,
+    url: `https://f0a8-2804-14d-78b1-809f-b84e-c888-ce44-a9bf.sa.ngrok.io/user/${_id}`,
 
     headers: {
       Authorization: `bearer ${bearer}`,

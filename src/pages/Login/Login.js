@@ -10,6 +10,7 @@ import { UserContext } from "../../hooks/UserContext";
 function Login() {
   const {setValue} = useContext(UserContext);
   const [fields, setFields] = useState({ login: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState(false);
   const navigate = useNavigate();
 
   const changeHandler = (e, field) => {
@@ -18,12 +19,22 @@ function Login() {
 
   const onLoginCall = async () => {
     if (fields.login === "" || fields.password === "") return;
+    try{
     const response = await qLogin(fields.login, fields.password);
     if (response.status === 200){
+
+      setErrorMessage(false);
       setValue({token: response.data.token,
-      userId:response.data.user._id});
+      userId:response.data.user._id,
+      user: response.data.user
+    });
       navigate("/feed");
     }
+  }
+  catch(err){
+    setErrorMessage(true);
+  }
+  
   };
 
   return (
@@ -43,6 +54,7 @@ function Login() {
         />
 
         <div className="LoginButtonsField">
+          {errorMessage && <span className="login_errorMessage">Ocorreu um erro ao fazer o login, verifique as credenciais!</span>}
           <Button
             clickHandler={() => onLoginCall()}
             label="Login"

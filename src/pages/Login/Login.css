@@ -34,3 +34,14 @@
   margin-left: 1em;
   color:black;
 }
+
+.login_errorMessage{
+  font-size: 0.8rem;
+    height: 5vh;
+    border: 1px solid red;
+    border-radius: 2vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+    color: red;
+}

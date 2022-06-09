@@ -8,9 +8,10 @@ import {
   // InfoWindow,
 } from "@react-google-maps/api";
 import { libraries } from "../FeedPage/FeedPage";
+import moment from "moment";
 
 function Map(props) {
-  let centers = { lat: parseFloat(props.lat),  lng: parseFloat(props.lng) };
+  let centers = { lat: parseFloat(props.lat), lng: parseFloat(props.lng) };
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyAEWipmZ3jGT33I93c1nw1VZdQ20mjEdSg",
     libraries,
@@ -91,15 +92,14 @@ function Map(props) {
       center={centers}
       options={options}
     >
-      {isLoaded && (
-        <Marker position={centers} title="Local" />
-      )}
+      {isLoaded && <Marker position={centers} title="Local" />}
     </GoogleMap>
   );
 }
 
 function FeedItemDetail(props) {
   const { modalInfo } = props;
+  console.log(modalInfo);
   return (
     <div className="item_main">
       <div className="item_title">
@@ -115,10 +115,16 @@ function FeedItemDetail(props) {
         </span>
         <p>Nenhuma avaliação até o momento. :)</p>
       </div>
+      {modalInfo.type !== "lazer" && (
+        <div className="description_field">
+          <span className="description_name">Preço</span>
+          <p>Ingresso: R$0,00</p>
+          <p>Meia-entrada: R$0,00</p>
+        </div>
+      )}
       <div className="description_field">
-        <span className="description_name">Preço</span>
-        <p>Ingresso: R$0,00</p>
-        <p>Meia-entrada: R$0,00</p>
+        <span className="description_name">Horario</span>
+        <p>{moment(modalInfo.event_date_hour).format('DD-MM-YY, hh:mm')}</p>
       </div>
       <div>
         <span className="description_name">Localização</span>

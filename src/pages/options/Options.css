@@ -11,6 +11,15 @@
   color: #8941e3;
   border-bottom: 1px solid rgb(201, 201, 201);
   margin-bottom: 3vh;
+  flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Options_backButton{
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .Options_icons {

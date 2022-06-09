@@ -14,6 +14,7 @@ function Options() {
   return (
     <div className="Options">
       <div className="Options_title">
+        <span  onClick={() => clickHandler('/feed')}className="Options_backButton"> {'<'} </span>
         <h1>Olá Gabriel!</h1>
       </div>
       <div className="Options_field" onClick={() => clickHandler("/register")}>

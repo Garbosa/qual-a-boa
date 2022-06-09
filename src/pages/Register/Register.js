@@ -9,7 +9,7 @@ import { UserContext } from "../../hooks/UserContext";
 import "./Register.css";
 
 function Register() {
-  const { value } = useContext(UserContext);
+  const { value, setValue } = useContext(UserContext);
   const [fields, setFields] = useState({
     name: "",
     birthday: "",
@@ -47,20 +47,36 @@ function Register() {
 
   const register = async () => {
     if (!_.isEmpty(value)) {
-      const response = await putUserData(fields,value.userId,value.token);
-      console.log(response);
+      await putUserData(fields, value.userId, value.token);
       navigate("/feed");
     } else {
       const response = await registerUser(fields);
       if (response.status === 200) {
-        const response = await qLogin(fields.email, fields.password);
-        console.log(response)
+        await qLogin(fields.email, fields.password);
+        setValue({
+          token: response.data.token,
+          userId: response.data.user._id,
+          user: response.data.user,
+        });
+
         navigate("/feed");
       }
     }
   };
+
+  const changeRoute = () => {
+    if (value) {
+      navigate("/options");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="Register">
+        <div className="Register_backButton" onClick={() => changeRoute()}>
+          <span className="Register_backButtonSymbol">{"<"}</span>
+        </div>
       <h1>Insira suas informações abaixo</h1>
       <Input
         title="Nome completo"
