@@ -5,7 +5,6 @@ import {
   GoogleMap,
   useLoadScript,
   Marker,
-  // InfoWindow,
 } from "@react-google-maps/api";
 import { libraries } from "../FeedPage/FeedPage";
 import moment from "moment";
@@ -13,7 +12,7 @@ import moment from "moment";
 function Map(props) {
   let centers = { lat: parseFloat(props.lat), lng: parseFloat(props.lng) };
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAEWipmZ3jGT33I93c1nw1VZdQ20mjEdSg",
+    googleMapsApiKey: "",
     libraries,
   });
 
@@ -122,10 +121,12 @@ function FeedItemDetail(props) {
           <p>Meia-entrada: R$0,00</p>
         </div>
       )}
-      <div className="description_field">
-        <span className="description_name">Horario</span>
-        <p>{moment(modalInfo.event_date_hour).format('DD-MM-YY, hh:mm')}</p>
-      </div>
+      {modalInfo.type !== "lazer" && (
+        <div className="description_field">
+          <span className="description_name">Data</span>
+          <p>{moment(modalInfo.event_date_hour).format("DD-MM-YY, hh:mm")}</p>
+        </div>
+      )}
       <div>
         <span className="description_name">Localização</span>
         <p>{modalInfo?.address}</p>

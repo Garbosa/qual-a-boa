@@ -22,6 +22,7 @@ function FeedPage() {
   const [eventsData, setEventsData] = useState([]);
   const [querySearch, setQuerySearch] = useState();
   const [preferences, setPreferences] = useState();
+  const [userData, setUserData] = useState();
   const changeRoute = () => {
     navigate(`/options`);
   };
@@ -34,6 +35,7 @@ function FeedPage() {
         const getUser = await getUserData(value.userId, value.token);
         if (!!getUser) {
           setPreferences(getUser.user.preferences);
+          setUserData(getUser.user);
         }
         if (!!response) {
           setEventsData(response.results);
@@ -46,7 +48,7 @@ function FeedPage() {
         setModalInfo(``);
       }
     } else navigate("/login");
-  }, [currentTab, navigate, value.token]); //eslint-disable-line
+  }, [currentTab, navigate, value.token, value]); //eslint-disable-line
 
   const cardChoosed = (data) => {
     setModalInfo(data);
@@ -86,9 +88,10 @@ function FeedPage() {
       mapped = _.filter(
         mapped,
         (e) =>
-          _.lowerCase(e.city) === _.lowerCase(value?.user?.city) &&
+          _.lowerCase(e.city) === _.lowerCase(userData?.city) &&
           _.lowerCase(e.type) === _.lowerCase(currentTab)
       );
+      console.log(mapped);
     } else {
       mapped = _.filter(
         events,
@@ -96,8 +99,8 @@ function FeedPage() {
           _.lowerCase(e.city) === _.lowerCase(querySearch) &&
           _.lowerCase(e.type) === _.lowerCase(currentTab)
       );
-      console.log(mapped)
     }
+
     return mapped;
   };
 

@@ -52,6 +52,7 @@ function Register() {
     } else {
       const response = await registerUser(fields);
       if (response.status === 200) {
+        console.log(response.data)
         await qLogin(fields.email, fields.password);
         setValue({
           token: response.data.token,
@@ -65,7 +66,9 @@ function Register() {
   };
 
   const changeRoute = () => {
+    console.log('entrou aqui')
     if (value) {
+      
       navigate("/options");
     } else {
       navigate("/login");
@@ -122,7 +125,7 @@ function Register() {
           handleChange={(data) => changeHandler(data, "password")}
         />
       )}
-      <Button label="Registrar" size="button-login" clickHandler={register} />
+      <Button label="Registrar" size="button-login" clickHandler={() => register()} />
     </div>
   );
 }
